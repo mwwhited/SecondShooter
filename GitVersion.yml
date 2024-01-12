@@ -1,0 +1,10 @@
+assembly-versioning-scheme: MajorMinorPatch
+assembly-file-versioning-scheme: MajorMinorPatchTag
+mode: Mainline
+branches:
+  master:
+    regex: main|master
+    increment: Patch
+
+ignore:
+  sha: []

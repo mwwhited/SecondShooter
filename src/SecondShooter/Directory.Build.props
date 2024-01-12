@@ -1,0 +1,53 @@
+<Project>
+
+  <PropertyGroup>
+    <Company>Out-of-Band Development, LLC</Company>
+    <Authors>Matthew Whited</Authors>
+    <Copyright>$(Company), $([System.DateTime]::Now.ToString('yyyy'))</Copyright>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition="'$(LOCAL_NUGET)' != ''">
+    <PackageOutputPath>$(LOCAL_NUGET.Trim('\'))\</PackageOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(DOCUMENT_PATH)' != ''">
+    <DocumentPath>$(DOCUMENT_PATH.Trim('\'))\</DocumentPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DOCUMENT_PATH)' == ''">
+    <DocumentPath>$(SolutionDir)docs\</DocumentPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(CodeDocumentPath)' == ''">
+    <CodeDocumentPath>$(DocumentPath)code\</CodeDocumentPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild" Version="5.12.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <CodeDocumentation Include="**\*.md" />
+    <CodeDocumentation Include="**\*.plantuml" />
+    <CodeDocumentation Include="**\*.puml" />
+    <CodeDocumentation Remove="bin\**\*.*" />
+    <CodeDocumentation Remove="obj\**\*.*" />
+
+    <Examples Include="**\*.txt" />
+    <Examples Include="**\*.json" />
+    <Examples Include="**\*.html" />
+    <Examples Include="**\*.csv" />
+    <Examples Include="**\*.sql" />
+    <Examples Include="**\*.xml" />
+    <Examples Remove="bin\**\*.*" />
+    <Examples Remove="obj\**\*.*" />
+
+    <Content Include="@(CodeDocumentation)" />
+    <EmbeddedResource Include="@(Examples)" />
+
+  </ItemGroup>
+
+</Project>

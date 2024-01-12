@@ -18,8 +18,14 @@
     <BackupDatabaseBeforeChanges>True</BackupDatabaseBeforeChanges>
     <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
   </PropertyGroup>
-  <ItemGroup>
-    <!--<ProjectReference Include="..\SecondShooter.Persistance\SecondShooter.Persistance.csproj" />-->
-  </ItemGroup>
 
+  <!--
+  https://github.com/rr-wfm/MSBuild.Sdk.SqlProj/issues/51
+  https://github.com/rr-wfm/MSBuild.Sdk.SqlProj/issues/40
+  <ItemGroup>
+    <PackageReference Include="master" Version="150.0.0" DatabaseVariableLiteralValue="master" />
+  </ItemGroup>-->
+  
+  <Import Project="Build.DacPac.targets" />
+  
 </Project>
