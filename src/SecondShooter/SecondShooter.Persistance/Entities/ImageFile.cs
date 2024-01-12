@@ -6,12 +6,12 @@ namespace SecondShooter.Persistance.Entities;
 [Table("ImageFiles")]
 public class ImageFile
 {
-    [Key]
+    [Column("_id"), Key]
     public Guid ImageFileId { get; set; }
     [StringLength(512)]
-    public string RelativePath { get; set; }
+    public required  string RelativePath { get; set; }
     [StringLength(512)]
-    public string FileName { get; set; }
+    public required string FileName { get; set; }
     [StringLength(25)]
     public string? Extension { get; set; }
     public Guid Hash { get; set; }
