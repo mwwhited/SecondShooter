@@ -18,5 +18,8 @@
     <BackupDatabaseBeforeChanges>True</BackupDatabaseBeforeChanges>
     <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
   </PropertyGroup>
+  <ItemGroup>
+    <!--<ProjectReference Include="..\SecondShooter.Persistance\SecondShooter.Persistance.csproj" />-->
+  </ItemGroup>
 
 </Project>
