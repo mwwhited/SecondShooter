@@ -5,6 +5,19 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondShooter.Cli", "SecondShooter.Cli\SecondShooter.Cli.csproj", "{40DBCDD7-8CD1-48A6-841E-C5FED7428B7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondShooter.Persistance", "SecondShooter.Persistance\SecondShooter.Persistance.csproj", "{AD392918-0E8F-484A-BF94-0DB512844768}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondShooter.Database", "SecondShooter.Database\SecondShooter.Database.csproj", "{4C49D24E-60B4-48A2-B164-AB9ECE73B220}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D258C83E-AEC3-456B-9866-8225CF0F489B}"
+	ProjectSection(SolutionItems) = preProject
+		create-db.bat = create-db.bat
+		DeployDatabaseScript.bat = DeployDatabaseScript.bat
+		GenerateDatabaseScript.bat = GenerateDatabaseScript.bat
+		RemoveLocalDb.bat = RemoveLocalDb.bat
+		SimpleDeploy.bat = SimpleDeploy.bat
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +28,14 @@ Global
 		{40DBCDD7-8CD1-48A6-841E-C5FED7428B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40DBCDD7-8CD1-48A6-841E-C5FED7428B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40DBCDD7-8CD1-48A6-841E-C5FED7428B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD392918-0E8F-484A-BF94-0DB512844768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD392918-0E8F-484A-BF94-0DB512844768}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD392918-0E8F-484A-BF94-0DB512844768}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD392918-0E8F-484A-BF94-0DB512844768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C49D24E-60B4-48A2-B164-AB9ECE73B220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C49D24E-60B4-48A2-B164-AB9ECE73B220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C49D24E-60B4-48A2-B164-AB9ECE73B220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C49D24E-60B4-48A2-B164-AB9ECE73B220}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
