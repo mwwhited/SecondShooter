@@ -1,8 +1,12 @@
 ﻿<Project Sdk="MSBuild.Sdk.SqlProj/2.6.1">
   <!-- https://github.com/rr-wfm/MSBuild.Sdk.SqlProj -->
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <SqlServerVersion>Sql160</SqlServerVersion>
+    <!--
+    https://github.com/rr-wfm/MSBuild.Sdk.SqlProj/blob/7fd37a736d0b320ad2b360daa1d982ccf712c760/README.md?plain=1#L62
+     **do not** change the `TargetFramework` element from `netstandard2.0`
+     -->
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <SqlServerVersion>Sql150</SqlServerVersion>
     <RecoveryMode>Simple</RecoveryMode>
 
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
@@ -15,8 +19,4 @@
     <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Lightwell.ComplexEvents.DatabaseExtensions\Lightwell.ComplexEvents.DatabaseExtensions.csproj" />
-    <ProjectReference Include="..\Lightwell.EntityFrameworkCore.SqlServer.DatabaseExtensions\Lightwell.EntityFrameworkCore.SqlServer.DatabaseExtensions.csproj" />
-  </ItemGroup>
 </Project>
