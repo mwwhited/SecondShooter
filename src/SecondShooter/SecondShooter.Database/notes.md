@@ -1,0 +1,1 @@
+adding versioning support on top of gitversion

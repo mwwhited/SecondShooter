@@ -28,4 +28,8 @@
   
   <Import Project="Build.DacPac.targets" />
   
+  <ItemGroup>
+    <Content Remove="notes.md" />
+  </ItemGroup>
+  
 </Project>
