@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecondShooter.Persistance", "SecondShooter.Persistance\SecondShooter.Persistance.csproj", "{AD392918-0E8F-484A-BF94-0DB512844768}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecondShooter.Database", "SecondShooter.Database\SecondShooter.Database.csproj", "{4C49D24E-60B4-48A2-B164-AB9ECE73B220}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AD392918-0E8F-484A-BF94-0DB512844768} = {AD392918-0E8F-484A-BF94-0DB512844768}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D258C83E-AEC3-456B-9866-8225CF0F489B}"
 	ProjectSection(SolutionItems) = preProject
