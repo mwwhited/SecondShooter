@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortEm", "SortEm\SortEm.csproj", "{7447DFE0-81FD-4B02-8387-6BE4BA74378E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanRm", "CleanRm\CleanRm.csproj", "{D2CA6F51-50DA-426A-8978-0525A806C5DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A49A0060-B82D-4BBF-B21C-0BF6D36A6BDE}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\.gitattributes = ..\..\..\.gitattributes
+		..\..\..\.gitignore = ..\..\..\.gitignore
+		..\..\..\README.md = ..\..\..\README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResortEm", "ResortEm\ResortEm.csproj", "{F5FF28A8-EB46-4332-A805-594E6C0ECE11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashEm", "HashEm\HashEm.csproj", "{F9A9AB5F-2248-42DA-8F5C-D1DF5F82CDAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCvExample", "OpenCvExample\OpenCvExample.csproj", "{7C077AF5-FCC9-4E4D-9A9D-13B408C0385D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7447DFE0-81FD-4B02-8387-6BE4BA74378E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7447DFE0-81FD-4B02-8387-6BE4BA74378E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7447DFE0-81FD-4B02-8387-6BE4BA74378E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7447DFE0-81FD-4B02-8387-6BE4BA74378E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2CA6F51-50DA-426A-8978-0525A806C5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2CA6F51-50DA-426A-8978-0525A806C5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2CA6F51-50DA-426A-8978-0525A806C5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2CA6F51-50DA-426A-8978-0525A806C5DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5FF28A8-EB46-4332-A805-594E6C0ECE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5FF28A8-EB46-4332-A805-594E6C0ECE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5FF28A8-EB46-4332-A805-594E6C0ECE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5FF28A8-EB46-4332-A805-594E6C0ECE11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A9AB5F-2248-42DA-8F5C-D1DF5F82CDAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A9AB5F-2248-42DA-8F5C-D1DF5F82CDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A9AB5F-2248-42DA-8F5C-D1DF5F82CDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A9AB5F-2248-42DA-8F5C-D1DF5F82CDAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C077AF5-FCC9-4E4D-9A9D-13B408C0385D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C077AF5-FCC9-4E4D-9A9D-13B408C0385D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C077AF5-FCC9-4E4D-9A9D-13B408C0385D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C077AF5-FCC9-4E4D-9A9D-13B408C0385D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DF62DA7-6132-4AA3-8448-832D25517B4A}
+	EndGlobalSection
+EndGlobal
