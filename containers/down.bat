@@ -1,5 +1,5 @@
 
-IF "%APP_PROJECT%"=="" SET APP_PROJECT=2ndShooter
+IF "%APP_PROJECT%"=="" SET APP_PROJECT=second-shooter
 
 SET EXTRA_ARGS=
 IF /I "%1" EQU "ALL" (

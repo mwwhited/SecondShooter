@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$APP_PROJECT" ]; then
-  APP_PROJECT="2ndShooter"
+  APP_PROJECT="second-shooter"
 fi
 
 EXTRA_ARGS=""

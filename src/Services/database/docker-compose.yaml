@@ -1,9 +1,0 @@
-version: '1.0'
-services:
-  sql-server:
-    build: .
-    ports:
-      - "1433:1433"
-    volumes:
-       # - "../../../../../Storage/mssql:/var/opt/mssql"
-       - "../../../../../Storage/backup:/backup"

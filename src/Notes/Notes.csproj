@@ -14,16 +14,16 @@
 	
 	<ItemGroup>
 		<None Include="$(SolutionDir)*.*">
-			<Link>src\%(FileName)%(Extension)</Link>
+			<Link>src\%(RecursiveDir)%(FileName)%(Extension)</Link>
 		</None>
 		<None Include="$(BasePublishPath)**\*.*">
-			<Link>publish\%(FileName)%(Extension)</Link>
+			<Link>publish\%(RecursiveDir)%(FileName)%(Extension)</Link>
 		</None>
 		<None Include="$(DocumentPath)**\*.*">
-			<Link>docs\%(FileName)%(Extension)</Link>
+			<Link>docs\%(RecursiveDir)%(FileName)%(Extension)</Link>
 		</None>
 		<None Include="$(ContainersPath)**\*.*">
-			<Link>containers\%(FileName)%(Extension)</Link>
+			<Link>containers\%(RecursiveDir)%(FileName)%(Extension)</Link>
 		</None>
 
 		<!--
