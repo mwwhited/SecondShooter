@@ -1,0 +1,21 @@
+FROM mcr.microsoft.com/mssql/server:2022-latest
+
+ENV ACCEPT_EULA Y
+ENV MSSQL_TCP_PORT=1433
+
+# RUN apt update && apt upgrade -y && apt-get install git pip -y 
+# RUN pip install pandas
+
+RUN mkdir /var/opt/mssql/extensions && \
+    wget https://github.com/microsoft/sql-server-language-extensions/releases/download/Python-v1.1.0/python-lang-extension-linux-release.zip \
+         --output-document=/var/opt/mssql/extensions/python-lang-extension-linux-release.zip
+
+# RUN add-apt-repository ppa:jonathonf/gcc -y && apt-get update
+# RUN cd /tmp && wget https://github.com/microsoft/sql-server-language-extensions/releases/download/Python-v1.1.0/python-lang-extension-linux-release.zip
+# RUN cd /opt && git clone https://github.com/microsoft/sql-server-language-extensions.git
+# RUN cd /opt/sql-server-language-extensions && chmod +x *.sh && ./restore-packages.sh
+
+EXPOSE 1433
+
+CMD /opt/mssql/bin/sqlservr
+

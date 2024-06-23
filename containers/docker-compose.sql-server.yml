@@ -1,0 +1,13 @@
+name: sql-server
+services:
+    sql-server:
+        ports:
+        - 1433:1433
+        environment:
+        - MSSQL_SA_PASSWORD=2ND!Shooter
+        build:
+            dockerfile: DockerFile.sql-server
+            context: .
+        volumes:
+        - sqlserver-data:/var/opt/mssql
+        - ../../_Storage/backup:/backup
