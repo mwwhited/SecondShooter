@@ -1,27 +1,27 @@
 services:
 
-  # keycloak:
-  #   extends:
-  #     file: docker-compose.keycloak.yml
-  #     service: keycloak
-  #   networks:
-  #     - frontend
-  #     - backend      
+  keycloak:
+    extends:
+      file: docker-compose.keycloak.yml
+      service: keycloak
+    networks:
+      - frontend
+      - backend      
 
-  # apache-tika:
-  #   extends:
-  #     file: docker-compose.apache-tika.yml
-  #     service: apache-tika
-  #   networks:
-  #     - backend
+  apache-tika:
+    extends:
+      file: docker-compose.apache-tika.yml
+      service: apache-tika
+    networks:
+      - backend
 
-  # smtp4dev:
-  #   extends:
-  #     file: docker-compose.smtp4dev.yml
-  #     service: smtp4dev
-  #   networks:
-  #     - frontend
-  #     - backend
+  smtp4dev:
+    extends:
+      file: docker-compose.smtp4dev.yml
+      service: smtp4dev
+    networks:
+      - frontend
+      - backend
 
   sql-server:
     extends:
@@ -60,22 +60,22 @@ services:
     #           count: 1
     #           capabilities: [gpu]
 
-  # open-webui:
-  #   extends:
-  #     file: docker-compose.open-webui.yml
-  #     service: open-webui
-  #   depends_on:
-  #     - ollama
-  #   networks:
-  #     - frontend
-  #     - backend
+  open-webui:
+    extends:
+      file: docker-compose.open-webui.yml
+      service: open-webui
+    depends_on:
+      - ollama
+    networks:
+      - frontend
+      - backend
 
-  # qdrant:
-  #   extends:
-  #     file: docker-compose.qdrant.yml
-  #     service: qdrant
-  #   networks:
-  #     - backend
+  qdrant:
+    extends:
+      file: docker-compose.qdrant.yml
+      service: qdrant
+    networks:
+      - backend
 
 networks:
   frontend:

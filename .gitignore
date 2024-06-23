@@ -360,3 +360,4 @@ MigrationBackup/
 
 # This file is built automatically.
 SetDacVersion.sql
+/notebooks/.ipynb_checkpoints
