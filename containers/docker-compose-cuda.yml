@@ -1,5 +1,12 @@
 services:
 
+  azurite:
+    extends:
+      file: docker-compose.azurite.yml
+      service: azurite
+    networks:
+      - backend
+
   keycloak:
     extends:
       file: docker-compose.keycloak.yml
@@ -84,6 +91,7 @@ networks:
     driver: bridge
 
 volumes:
+    azurite-data:
     keycloak-data:
     smtp4dev-data:
     qdrant-storage:
