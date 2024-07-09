@@ -1,5 +1,14 @@
 services:
 
+  nginx:
+    extends:
+      file: docker-compose.nginx.yml
+      service: nginx
+    networks:
+      - expose
+      - frontend
+      - backend
+
   azurite:
     extends:
       file: docker-compose.azurite.yml
@@ -101,6 +110,8 @@ services:
       - backend
 
 networks:
+  expose:
+    driver: bridge
   frontend:
     driver: bridge
   backend:
