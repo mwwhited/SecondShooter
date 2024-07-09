@@ -1,19 +1,36 @@
 
+@ECHO OFF
 
 SET DATABASE_PROJECT=SecondShooter.Database
 SET PRESISTANCE_PROJECT=SecondShooter.Persistance
 SET EF_CONTEXT=SecondShooterDbContext
+SET ERROR_CODE=0
 
 dotnet build %PRESISTANCE_PROJECT%
+SET ERROR_CODE=%ERRORLEVEL%
+IF NOT %ERROR_CODE%==0 GOTO :ON_ERROR
 
 dotnet ef dbcontext script ^
 --project %PRESISTANCE_PROJECT% ^
 --output ..\%DATABASE_PROJECT%\Generated\%EF_CONTEXT%.sql
+SET ERROR_CODE=%ERRORLEVEL%
+IF NOT %ERROR_CODE%==0 GOTO :ON_ERROR
 
 dotnet build %DATABASE_PROJECT% ^
 --output .\publish\database
+SET ERROR_CODE=%ERRORLEVEL%
+IF NOT %ERROR_CODE%==0 GOTO :ON_ERROR
 
 dotnet publish %DATABASE_PROJECT%
-
+SET ERROR_CODE=%ERRORLEVEL%
+IF NOT %ERROR_CODE%==0 GOTO :ON_ERROR
 
 REM BACKUP DATABASE [secondshooter] TO  DISK = N'C:\Repos\Storage\backup\secondshooter.bak' 
+
+GOTO :EOF
+:ON_ERROR
+ECHO "Error! %ERROR_CODE%"
+EXIT /B %ERROR_CODE%
+
+:EOF
+EXIT /B 

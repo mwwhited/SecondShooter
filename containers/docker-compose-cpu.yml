@@ -1,12 +1,28 @@
 services:
 
-  keycloak:
+  nginx:
     extends:
-      file: docker-compose.keycloak.yml
-      service: keycloak
+      file: docker-compose.nginx.yml
+      service: nginx
     networks:
+      - expose
       - frontend
-      - backend      
+      - backend
+
+  azurite:
+    extends:
+      file: docker-compose.azurite.yml
+      service: azurite
+    networks:
+      - backend
+
+  # keycloak:
+  #   extends:
+  #     file: docker-compose.keycloak.yml
+  #     service: keycloak
+  #   networks:
+  #     - frontend
+  #     - backend      
 
   apache-tika:
     extends:
@@ -34,6 +50,22 @@ services:
     extends:
       file: docker-compose.sbert.yml
       service: sbert
+    # deploy:
+    #   # mode: replicated
+    #   # replicas: 6
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    networks:
+      - backend
+
+  vit:
+    extends:
+      file: docker-compose.vit.yml
+      service: vit
     # deploy:
     #   # mode: replicated
     #   # replicas: 6
@@ -78,12 +110,15 @@ services:
       - backend
 
 networks:
+  expose:
+    driver: bridge
   frontend:
     driver: bridge
   backend:
     driver: bridge
 
 volumes:
+    azurite-data:
     keycloak-data:
     smtp4dev-data:
     qdrant-storage:

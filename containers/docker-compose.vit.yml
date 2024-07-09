@@ -1,0 +1,9 @@
+name: vit
+services:
+
+  vit:
+    build:
+      dockerfile: DockerFile.vit
+      context: .
+    ports: 
+      - 5081:5000

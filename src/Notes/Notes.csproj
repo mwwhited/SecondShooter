@@ -13,6 +13,15 @@
 	</Target>
 	
 	<ItemGroup>
+		<None Include="$(SolutionDir)..\.config\*.*">
+			<Link>.config\%(RecursiveDir)%(FileName)%(Extension)</Link>
+		</None>
+		<None Include="$(SolutionDir)..\.github\*.*">
+			<Link>.github\%(RecursiveDir)%(FileName)%(Extension)</Link>
+		</None>
+		<None Include="$(SolutionDir)..\notebooks\*.*">
+			<Link>notebooks\%(RecursiveDir)%(FileName)%(Extension)</Link>
+		</None>
 		<None Include="$(SolutionDir)*.*">
 			<Link>src\%(RecursiveDir)%(FileName)%(Extension)</Link>
 		</None>

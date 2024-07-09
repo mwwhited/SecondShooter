@@ -1,0 +1,17 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+ENV VIT_MODEL=google/vit-base-patch16-224
+
+RUN pip install transformers Flask waitress pillow rawpy numpy==1.21.3
+RUN pip3 install torch --index-url https://download.pytorch.org/whl/cu121
+RUN pip install transformers -U
+
+RUN python -c "from transformers import ViTModel; model = ViTModel.from_pretrained('$VIT_MODEL')"
+
+COPY ./vit/vit-main.py /app/
+
+EXPOSE 5000
+
+CMD python /app/vit-main.py "$VIT_MODEL"
