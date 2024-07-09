@@ -12,5 +12,5 @@ COPY ./keycloak/${KEYCLOAK_IMPORT} /opt/keycloak/data/import/
 EXPOSE 8080
 
 # Use ENTRYPOINT and CMD to ensure the environment variables are passed correctly
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--proxy-headers"]
-CMD ["--import-realm", "--script-upload-enabled=true", "--proxy-headers"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]
+CMD ["--import-realm", "--script-upload-enabled=true"]
