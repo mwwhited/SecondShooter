@@ -43,10 +43,10 @@ def convert_to_jpeg(image_data):
         print(f"Error converting image to JPEG: {str(e)}")
         return None
 
-# Function to convert .nef (RAW) images to JPEG
-def convert_nef_to_jpeg(image_data):
+# Function to convert raw images to JPEG
+def convert_raw_to_jpeg(image_data):
     try:
-        # Use rawpy to read .nef file
+        # Use rawpy to read raw image data
         with rawpy.imread(io.BytesIO(image_data)) as raw:
             rgb = raw.postprocess()
         
@@ -58,8 +58,11 @@ def convert_nef_to_jpeg(image_data):
             pil_image.convert("RGB").save(output, format="JPEG")
             return output.getvalue()
     
+    except rawpy.LibRawNonFatalError as e:
+        print(f"LibRaw non-fatal error: {str(e)}")
+        return None
     except Exception as e:
-        print(f"Error converting .nef image to JPEG: {str(e)}")
+        print(f"Error converting raw image to JPEG: {str(e)}")
         return None
 
 @app.route('/v1/embeddings', methods=['POST'])
@@ -79,13 +82,13 @@ def get_embeddings():
         image_data = file.read()
 
         # Determine image type and convert if necessary
-        if file.filename.lower().endswith('.nef'):
-            # Convert .nef to JPEG
-            image_data = convert_nef_to_jpeg(image_data)
+        if file.filename.lower().endswith(('.nef', '.cr2', '.arw', '.dng', '.raw')):
+            # Convert raw image to JPEG
+            image_data = convert_raw_to_jpeg(image_data)
             if image_data is None:
-                return jsonify({"error": "Error converting .nef image to JPEG"}), 500
+                return jsonify({"error": "Error converting raw image to JPEG"}), 500
         else:
-            # Convert any image format to JPEG
+            # Convert any other image format to JPEG
             image_data = convert_to_jpeg(image_data)
             if image_data is None:
                 return jsonify({"error": "Error converting image to JPEG"}), 500
@@ -114,9 +117,9 @@ def get_embeddings():
         print(f"Error processing request: {str(e)}")
         return jsonify({"error": "An error occurred while processing the request"}), 500
 
-@app.route('/v1/convert-to-jpeg', methods=['POST'])
+@app.route('/v1/jpeg', methods=['POST'])
 def convert_and_return_jpeg():
-    print("POST /v1/convert-to-jpeg")
+    print("POST /v1/jpeg")
     try:
         # Check if request contains files
         if 'image' not in request.files:

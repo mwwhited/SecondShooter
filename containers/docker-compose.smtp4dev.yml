@@ -9,3 +9,6 @@ services:
         image: rnwood/smtp4dev
         volumes:
         - smtp4dev-data:/smtp4dev
+        # environment:
+        # - ServerOptions__Users__0__Username=user
+        # - ServerOptions__Users__0__Password=pass
