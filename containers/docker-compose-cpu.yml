@@ -16,13 +16,13 @@ services:
     networks:
       - backend
 
-  keycloak:
-    extends:
-      file: docker-compose.keycloak.yml
-      service: keycloak
-    networks:
-      - frontend
-      - backend      
+  # keycloak:
+  #   extends:
+  #     file: docker-compose.keycloak.yml
+  #     service: keycloak
+  #   networks:
+  #     - frontend
+  #     - backend      
 
   apache-tika:
     extends:

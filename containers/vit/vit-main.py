@@ -70,29 +70,24 @@ def get_embeddings():
     print("POST /v1/embeddings")
     try:
         # Check if request contains files
-        if 'image' not in request.files:
-            return jsonify({"error": "No image file provided"}), 400
+        if 'image' in request.files:
+            file = request.files['image']
+            image_data = file.read()
 
-        file = request.files['image']
-        
-        # Ensure file is an image
-        if file.filename == '':
-            return jsonify({"error": "No image file provided"}), 400
-        
-        image_data = file.read()
+            # Determine image type and convert if necessary
+            if file.filename.lower().endswith(('.nef', '.cr2', '.arw', '.dng', '.raw')):
+                # Convert raw image to JPEG
+                image_data = convert_raw_to_jpeg(image_data)
+                if image_data is None:
+                    return jsonify({"error": "Error converting raw image to JPEG"}), 500
+            else:
+                # Convert any other image format to JPEG
+                image_data = convert_to_jpeg(image_data)
+                if image_data is None:
+                    return jsonify({"error": "Error converting image to JPEG"}), 500
+        elif 'image' in request.files or request.data:
+            image_data = request.data
 
-        # Determine image type and convert if necessary
-        if file.filename.lower().endswith(('.nef', '.cr2', '.arw', '.dng', '.raw')):
-            # Convert raw image to JPEG
-            image_data = convert_raw_to_jpeg(image_data)
-            if image_data is None:
-                return jsonify({"error": "Error converting raw image to JPEG"}), 500
-        else:
-            # Convert any other image format to JPEG
-            image_data = convert_to_jpeg(image_data)
-            if image_data is None:
-                return jsonify({"error": "Error converting image to JPEG"}), 500
-        
         # Encode the image
         embeddings = encode_image(image_data)
         
@@ -121,17 +116,11 @@ def get_embeddings():
 def convert_and_return_jpeg():
     print("POST /v1/jpeg")
     try:
-        # Check if request contains files
-        if 'image' not in request.files:
-            return jsonify({"error": "No image file provided"}), 400
-
-        file = request.files['image']
-        
-        # Ensure file is an image
-        if file.filename == '':
-            return jsonify({"error": "No image file provided"}), 400
-        
-        image_data = file.read()
+        if 'image' in request.files:
+            file = request.files['image']
+            image_data = file.read()
+        elif 'image' in request.files or request.data:
+            image_data = request.data
 
         # Convert image to JPEG format
         image_data_jpeg = convert_to_jpeg(image_data)

@@ -25,9 +25,19 @@ def encode_text(texts):
 @app.route('/v1/embeddings', methods=['POST'])
 def get_embeddings():
     print("POST /v1/embeddings")
-    content = request.json
-    text_input = content['input']
+    
+    if request.is_json:
+        # Handle JSON request
+        content = request.json
+    else:
+        # Handle form data
+        content = request.form
+    
+    text_input = content.get('input')
     model_name = content.get('model', model_name_arg)
+
+    if not text_input:
+        return jsonify({"error": "Missing input"}), 400
 
     # Encode the input text
     embedding_list = encode_text([text_input])[0]
@@ -63,7 +73,12 @@ def generate_embedding():
 @app.route('/generate-embeddings', methods=['POST'])
 def generate_multiple_embeddings():
     print("POST /generate-embeddings")
-    texts = request.json
+    if request.is_json:
+        # Handle JSON request
+        texts = request.json
+    else:
+        # Handle form data
+        texts = request.form
     
     # Encode the multiple texts
     embeddings_list = encode_text(texts)
