@@ -53,6 +53,22 @@ services:
     networks:
       - backend
 
+  vit:
+    extends:
+      file: docker-compose.vit.yml
+      service: vit
+    deploy:
+      # mode: replicated
+      # replicas: 6
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - backend
+
   ollama:
     extends:
       file: docker-compose.ollama.yml

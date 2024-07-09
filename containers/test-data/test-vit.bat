@@ -1,0 +1,1 @@
+curl -X POST -F "image=@buddy.jpg" http://localhost:5081/v1/embeddings
